@@ -1,4 +1,4 @@
-package cn.maitian.guide;
+package cn.maitian.componts.guide;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;

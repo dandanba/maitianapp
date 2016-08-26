@@ -3,7 +3,7 @@ package cn.maitian.app;
 import com.squareup.leakcanary.RefWatcher;
 
 import cn.maitian.base.BaseApplication;
-import cn.maitian.config.Configs;
+import cn.maitian.componts.Configs;
 import cn.maitian.leakcanary_android.LeakCanaryUtil;
 
 /**

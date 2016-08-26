@@ -1,4 +1,4 @@
-package cn.maitian.guide;
+package cn.maitian.componts.guide;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;

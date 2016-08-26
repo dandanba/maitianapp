@@ -1,11 +1,11 @@
-package cn.maitian.launcher;
+package cn.maitian.componts.launcher;
 
 import android.os.Bundle;
 import android.os.Message;
 
-import cn.maitian.actions.Actions;
 import cn.maitian.activity.MaitianActivity;
-import cn.maitian.config.Configs;
+import cn.maitian.componts.Actions;
+import cn.maitian.componts.Configs;
 import cn.maitian.utils.IntentUtils;
 import cn.maitian.utils.os.LogHandler;
 

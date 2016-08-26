@@ -1,4 +1,4 @@
-package cn.maitian.main;
+package cn.maitian.componts.main;
 
 
 import android.os.Bundle;

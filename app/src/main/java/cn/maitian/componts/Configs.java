@@ -1,11 +1,11 @@
-package cn.maitian.config;
+package cn.maitian.componts;
 
 import android.content.Context;
 
 import java.util.HashMap;
 
 import cn.maitian.app.MaitianApplication;
-import cn.maitian.guide.GuideActivity;
+import cn.maitian.componts.guide.GuideActivity;
 import cn.maitian.secure_pref_manager.SecurePrefUtils;
 
 /**

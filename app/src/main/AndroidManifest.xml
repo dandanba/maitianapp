@@ -9,29 +9,29 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme">
         <activity
-            android:name=".launcher.LauncherActivity"
+            android:name=".componts.launcher.LauncherActivity"
             android:screenOrientation="portrait"
             android:theme="@style/LauncherTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-                <action android:name="cn.maitian.launcher.LauncherActivity" />
+                <action android:name="cn.maitian.componts.launcher.LauncherActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".guide.GuideActivity"
+            android:name=".componts.guide.GuideActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="cn.maitian.guide.GuideActivity" />
+                <action android:name="cn.maitian.componts.guide.GuideActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".main.MainActivity"
+            android:name=".componts.main.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="cn.maitian.main.MainActivity" />
+                <action android:name="cn.maitian.componts.main.MainActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
