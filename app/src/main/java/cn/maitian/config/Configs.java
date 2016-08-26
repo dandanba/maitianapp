@@ -4,6 +4,8 @@ import android.content.Context;
 
 import java.util.HashMap;
 
+import cn.maitian.app.MaitianApplication;
+import cn.maitian.guide.GuideActivity;
 import cn.maitian.secure_pref_manager.SecurePrefUtils;
 
 /**
@@ -15,48 +17,42 @@ public class Configs {
     // ...
     public static final String KEY_INTEGER_AGE = "age";
     // ...
-    public static final String KEY_BOOLEAN_PASSED = "passed";
+    public static final String KEY_BOOLEAN_GUIDEACTIVITY = GuideActivity.class.getSimpleName();
     // ...
 
     private static final String[] sStrings = new String[]{KEY_STRING_NAME,/*...*/};
     private static final String[] sIntegers = new String[]{KEY_INTEGER_AGE,/*...*/};
-    private static final String[] sBooleans = new String[]{KEY_BOOLEAN_PASSED,/*...*/};
+    private static final String[] sBooleans = new String[]{KEY_BOOLEAN_GUIDEACTIVITY,/*...*/};
 
     private static final HashMap<String, String> sStringMap = new HashMap<>();
     private static final HashMap<String, Integer> sIntegerMap = new HashMap<>();
     private static final HashMap<String, Boolean> sBooleanMap = new HashMap<>();
 
-    public static void init(Context context, String[] strings, String[] integers, String[] booleans) {
+    public static void init(Context context) {
         SecurePrefUtils.initialize(context);
-        if (strings != null) {
-            for (String name : strings) {
-                sStringMap.put(name, SecurePrefUtils.getValue(context, name, ""));
-            }
+        for (String name : sStrings) {
+            sStringMap.put(name, SecurePrefUtils.getValue(context, name, ""));
         }
-        if (integers != null) {
-            for (String name : integers) {
-                sIntegerMap.put(name, SecurePrefUtils.getValue(context, name, 0));
-            }
+        for (String name : sIntegers) {
+            sIntegerMap.put(name, SecurePrefUtils.getValue(context, name, 0));
         }
-        if (booleans != null) {
-            for (String name : booleans) {
-                sBooleanMap.put(name, SecurePrefUtils.getValue(context, name, false));
-            }
+        for (String name : sBooleans) {
+            sBooleanMap.put(name, SecurePrefUtils.getValue(context, name, false));
         }
     }
 
-    public static void setValue(Context context, String name, String value) {
-        SecurePrefUtils.setValue(context, name, value);
+    public static void setValue(String name, String value) {
+        SecurePrefUtils.setValue(MaitianApplication.getMaitianApplication(), name, value);
         sStringMap.put(name, value);
     }
 
-    public static void setValue(Context context, String name, int value) {
-        SecurePrefUtils.setValue(context, name, value);
+    public static void setValue(String name, int value) {
+        SecurePrefUtils.setValue(MaitianApplication.getMaitianApplication(), name, value);
         sIntegerMap.put(name, value);
     }
 
-    public static void setValue(Context context, String name, boolean value) {
-        SecurePrefUtils.setValue(context, name, value);
+    public static void setValue(String name, boolean value) {
+        SecurePrefUtils.setValue(MaitianApplication.getMaitianApplication(), name, value);
         sBooleanMap.put(name, value);
     }
 
