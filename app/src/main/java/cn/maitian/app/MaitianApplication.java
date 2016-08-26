@@ -20,7 +20,7 @@ public class MaitianApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        Configs.init(this);
+        Configs.init();
         mRefWatcher = LeakCanaryUtil.install(this);
         sMaitianApplication = this;
     }

@@ -26,7 +26,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'cn.maitian.maitian:base:1.0.+'
+    compile 'cn.maitian.maitian:base:1.0.10'
     compile 'cn.maitian.common:utils:1.0.3'
     compile 'cn.maitian.common:circleindicator:1.0.0'
     compile 'cn.maitian.common:secure-pref-manager:1.0.5'
