@@ -5,12 +5,12 @@ import android.os.Message;
 
 import cn.maitian.actions.Actions;
 import cn.maitian.actions.IntentUtils;
-import cn.maitian.base.BaseActivity;
+import cn.maitian.activity.MaitianActivity;
 import cn.maitian.utils.os.LogHandler;
 
 
-public class LauncherActivity extends BaseActivity {
-    private final LogHandler mHandler = new LogHandler() {
+public class LauncherActivity extends MaitianActivity {
+    private LogHandler mHandler = new LogHandler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);

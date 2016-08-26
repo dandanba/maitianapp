@@ -9,11 +9,11 @@ import com.gigamole.navigationtabbar.ntb.NavigationTabBar;
 import java.util.ArrayList;
 
 import cn.maitian.R;
-import cn.maitian.base.BaseActivity;
+import cn.maitian.activity.MaitianActivity;
 import cn.maitian.base.BaseFragment;
 import me.tabak.fragmentswitcher.FragmentStateArrayPagerAdapter;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends MaitianActivity {
     ViewPager mViewPager;
     FragmentStateArrayPagerAdapter mFragmentAdapter;
     NavigationTabBar mNavigationTabBar;

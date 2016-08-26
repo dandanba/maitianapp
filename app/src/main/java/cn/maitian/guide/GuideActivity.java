@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 
 import cn.maitian.R;
-import cn.maitian.base.BaseActivity;
+import cn.maitian.activity.MaitianActivity;
 import me.relex.circleindicator.CircleIndicator;
 
 
-public class GuideActivity extends BaseActivity {
+public class GuideActivity extends MaitianActivity {
 
 
     @Override
