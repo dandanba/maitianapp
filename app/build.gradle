@@ -29,7 +29,7 @@ dependencies {
     compile 'cn.maitian.maitian:base:1.0.+'
     compile 'cn.maitian.common:utils:1.0.+'
     compile 'cn.maitian.common:circleindicator:1.0.0'
-    compile 'cn.maitian.common:secure-pref-manager:1.0.3'
+    compile 'cn.maitian.common:secure-pref-manager:1.0.5'
     compile 'cn.maitian.common:view-pager-adapter:1.0.2'
     compile 'cn.maitian.common:navigationtabbar:1.0.0'
     compile 'cn.maitian.common:fragmentswitcher:1.0.0'

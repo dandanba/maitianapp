@@ -2,12 +2,14 @@ package cn.maitian.config;
 
 import android.content.Context;
 
+import java.util.HashMap;
+
 import cn.maitian.secure_pref_manager.SecurePrefUtils;
 
 /**
  * Created by geng on 2016/8/26.
  */
-public class Configs extends SecurePrefUtils {
+public class Configs {
 
     public static final String KEY_STRING_NAME = "name";
     // ...
@@ -20,7 +22,53 @@ public class Configs extends SecurePrefUtils {
     private static final String[] sIntegers = new String[]{KEY_INTEGER_AGE,/*...*/};
     private static final String[] sBooleans = new String[]{KEY_BOOLEAN_PASSED,/*...*/};
 
-    public static void init(Context context) {
-        SecurePrefUtils.initialize(context, sStrings, sIntegers, sBooleans);
+    private static final HashMap<String, String> sStringMap = new HashMap<>();
+    private static final HashMap<String, Integer> sIntegerMap = new HashMap<>();
+    private static final HashMap<String, Boolean> sBooleanMap = new HashMap<>();
+
+    public static void init(Context context, String[] strings, String[] integers, String[] booleans) {
+        SecurePrefUtils.initialize(context);
+        if (strings != null) {
+            for (String name : strings) {
+                sStringMap.put(name, SecurePrefUtils.getValue(context, name, ""));
+            }
+        }
+        if (integers != null) {
+            for (String name : integers) {
+                sIntegerMap.put(name, SecurePrefUtils.getValue(context, name, 0));
+            }
+        }
+        if (booleans != null) {
+            for (String name : booleans) {
+                sBooleanMap.put(name, SecurePrefUtils.getValue(context, name, false));
+            }
+        }
+    }
+
+    public static void setValue(Context context, String name, String value) {
+        SecurePrefUtils.setValue(context, name, value);
+        sStringMap.put(name, value);
+    }
+
+    public static void setValue(Context context, String name, int value) {
+        SecurePrefUtils.setValue(context, name, value);
+        sIntegerMap.put(name, value);
+    }
+
+    public static void setValue(Context context, String name, boolean value) {
+        SecurePrefUtils.setValue(context, name, value);
+        sBooleanMap.put(name, value);
+    }
+
+    public static String getValue(String name, String defaultValue) {
+        return sStringMap.containsKey(name) ? sStringMap.get(name) : defaultValue;
+    }
+
+    public static int getValue(String name, int defaultValue) {
+        return sIntegerMap.containsKey(name) ? sIntegerMap.get(name) : defaultValue;
+    }
+
+    public static boolean getValue(String name, boolean defaultValue) {
+        return sBooleanMap.containsKey(name) ? sBooleanMap.get(name) : defaultValue;
     }
 }
