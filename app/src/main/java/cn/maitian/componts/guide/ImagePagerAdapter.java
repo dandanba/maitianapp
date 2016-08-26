@@ -10,10 +10,14 @@ import com.novoda.viewpageradapter.ViewPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cn.maitian.R;
 
 public class ImagePagerAdapter extends ViewPagerAdapter<FrameLayout> {
     private final List<Integer> mResIds = new ArrayList<>();
+    @BindView(R.id.image)
+    ImageView mImageView;
 
     public ImagePagerAdapter() {
         initResIds();
@@ -23,13 +27,13 @@ public class ImagePagerAdapter extends ViewPagerAdapter<FrameLayout> {
     protected FrameLayout createView(ViewGroup container, int position) {
         // inflate the view, do not attach to parent (the `false` param at the end of the `inflate()`)
         FrameLayout view = (FrameLayout) LayoutInflater.from(container.getContext()).inflate(R.layout.pager_image, container, false);
+        ButterKnife.bind(this, view);
         return view;
     }
 
     @Override
     protected void bindView(FrameLayout view, int position) {
-        ImageView imageView = (ImageView) view.findViewById(R.id.image);
-        imageView.setImageResource(mResIds.get(position));
+        mImageView.setImageResource(mResIds.get(position));
     }
 
     @Override

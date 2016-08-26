@@ -8,27 +8,29 @@ import com.gigamole.navigationtabbar.ntb.NavigationTabBar;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cn.maitian.R;
 import cn.maitian.activity.MaitianActivity;
 import cn.maitian.base.BaseFragment;
 import me.tabak.fragmentswitcher.FragmentStateArrayPagerAdapter;
 
 public class MainActivity extends MaitianActivity {
+    @BindView(R.id.viewpager)
     ViewPager mViewPager;
     FragmentStateArrayPagerAdapter mFragmentAdapter;
+    @BindView(R.id.ntb)
     NavigationTabBar mNavigationTabBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         initSwitcherAndNTB(new BlankFragment(), new BlankFragment(), new BlankFragment(), new BlankFragment(), new BlankFragment());
     }
 
     public void initSwitcherAndNTB(BaseFragment... fragments) {
-        mViewPager = (ViewPager) findViewById(R.id.viewpager);
-        mNavigationTabBar = (NavigationTabBar) findViewById(R.id.ntb);
-
         mFragmentAdapter = new FragmentStateArrayPagerAdapter(getSupportFragmentManager());
         mFragmentAdapter.addAll(fragments);
         mViewPager.setAdapter(mFragmentAdapter);
