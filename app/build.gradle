@@ -1,5 +1,22 @@
+// fabric auto added
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+// [Error:Could not find property 'options' on task ':app:compileOfficalDebugJavaWithJack'.](http://blog.csdn.net/yuhanghate/article/details/51544201)
+apply plugin: 'android-apt'//butterknife
 
 android {
     compileSdkVersion 24
@@ -11,32 +28,53 @@ android {
         targetSdkVersion 24
         versionCode 1
         versionName "1.0.0"
+
+        // [Error:Jack is required to support javava 8 language features. Either enable Jack or remove sourceCompatibility JavaVersion.VERSION_1_8.](http://blog.csdn.net/yuhanghate/article/details/51490214)
+        // jackOptions {
+        //    enabled true
+        // }
+        // [Enabling multidex support.](http://blog.csdn.net/zhixuan322145/article/details/51277839)
+        multiDexEnabled true
+        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "offical"]
     }
     signingConfigs {
-        debug {
+        maitian {
+            keyAlias KEYALIAS
+            keyPassword KEYPASSWORD
+            storeFile file(STOREFILE)
+            storePassword KEYPASSWORD
         }
-        release {
-            storeFile file("maitian.keystore")
-            keyAlias "maitian.keystore"
-            keyPassword "android"
-            storePassword "android"
-        }
+    }
+    // [使用Gradle构建Android应用的渠道包](http://www.cnblogs.com/shanpow/p/4097320.html)
+    // [Android Studio 多渠道打包、自动版本号及 gradlew 命令的基本使用](http://www.jianshu.com/p/44d40f8e67c9)
+    // [Android渠道打包工具](https://github.com/mcxiaoke/gradle-packer-plugin)
+    // [Jenkins+Gradle实现android开发持续集成、打包](http://my.oschina.net/uboluo/blog/157483)
+    productFlavors {
+        offical {}
+    }
+    productFlavors.all { flavor ->
+        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
     }
     buildTypes {
         debug {
             minifyEnabled false
             zipAlignEnabled true
             shrinkResources true
-            signingConfig signingConfigs.debug
+            debuggable true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.maitian
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
             zipAlignEnabled true
             shrinkResources true
-            signingConfig signingConfigs.release
+            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.maitian
         }
+    }
+    dexOptions {
+        incremental true
     }
 }
 
@@ -58,4 +96,7 @@ dependencies {
     compile 'cn.maitian.common:customactivityoncrash:1.0.0'
     compile 'com.jakewharton:butterknife:8.3.0'
     apt 'com.jakewharton:butterknife-compiler:8.3.0'
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.2@aar') {
+        transitive = true;
+    }
 }
