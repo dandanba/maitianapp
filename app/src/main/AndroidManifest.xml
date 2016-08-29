@@ -28,6 +28,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".componts.auth.AuthActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="cn.maitian.componts.auth.AuthActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".componts.main.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>

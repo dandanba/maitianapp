@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <Button
+        android:id="@+id/sina_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sina" />
+
+    <Button
+        android:id="@+id/weixin_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="weixin" />
+
+    <Button
+        android:id="@+id/qq_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="qq" />
+</LinearLayout>
