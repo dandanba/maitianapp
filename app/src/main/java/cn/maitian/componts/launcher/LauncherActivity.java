@@ -15,7 +15,7 @@ public class LauncherActivity extends MaitianActivity {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            startActivity(IntentUtils.generageIntent(Actions.ACTION_AUTH));
+            startActivity(IntentUtils.generageIntent(Actions.ACTION_SHARE));
             if (!Configs.getValue(Configs.KEY_BOOLEAN_GUIDEACTIVITY, false)) {
                 Configs.setValue(Configs.KEY_BOOLEAN_GUIDEACTIVITY, true);
                 startActivity(IntentUtils.generageIntent(Actions.ACTION_GUIDE));

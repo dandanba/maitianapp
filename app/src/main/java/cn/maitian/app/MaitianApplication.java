@@ -5,6 +5,7 @@ import com.squareup.leakcanary.RefWatcher;
 
 import cn.maitian.base.BaseApplication;
 import cn.maitian.componts.Configs;
+import cn.maitian.customactivityoncrash.CustomCrashUtil;
 import cn.maitian.leakcanary_android.LeakCanaryUtil;
 import io.fabric.sdk.android.Fabric;
 
@@ -22,7 +23,9 @@ public class MaitianApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        initSocial(true, true);
         Fabric.with(this, new Crashlytics());
+        CustomCrashUtil.install(this);
         Configs.init();
         mRefWatcher = LeakCanaryUtil.install(this);
         sMaitianApplication = this;

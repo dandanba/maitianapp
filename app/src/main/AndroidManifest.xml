@@ -36,6 +36,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".componts.share.ShareActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="cn.maitian.componts.share.ShareActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".componts.main.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>

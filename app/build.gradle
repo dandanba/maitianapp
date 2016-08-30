@@ -81,7 +81,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'cn.maitian.maitian:base:1.0.13'
+    compile 'cn.maitian.maitian:base:1.0.15'
     compile 'cn.maitian.common:utils:1.0.4'
     compile 'cn.maitian.common:circleindicator:1.0.0'
     compile 'cn.maitian.common:secure-pref-manager:1.0.5'
@@ -93,7 +93,7 @@ dependencies {
     compile 'cn.maitian.common:fragmentswitcher:1.0.0'
     compile 'cn.maitian.common:baserecyclerviewadapterhelper:1.0.0'
     compile 'cn.maitian.common:calligraphy:1.0.1'
-    compile 'cn.maitian.common:customactivityoncrash:1.0.0'
+    compile 'cn.maitian.common:customactivityoncrash:1.0.1'
     compile 'com.jakewharton:butterknife:8.3.0'
     apt 'com.jakewharton:butterknife-compiler:8.3.0'
     compile('com.crashlytics.sdk.android:crashlytics:2.6.2@aar') {

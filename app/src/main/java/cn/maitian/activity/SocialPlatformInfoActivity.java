@@ -32,6 +32,7 @@ public class SocialPlatformInfoActivity extends MaitianActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SocialSdk.initProgressDialog(this, "", "加载中...");
     }
 
     @Override
