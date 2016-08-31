@@ -32,7 +32,6 @@ public class ShareActivity extends SocialOpenActionActivity {
         ButterKnife.bind(this);
     }
 
-
     @OnClick({R.id.share_button, R.id.crash_button})
     public void onClick(View view) {
         switch (view.getId()) {
