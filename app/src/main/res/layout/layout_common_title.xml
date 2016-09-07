@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="60dp"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:text="adfjahdsfjklahsdlfjk;asjdkl;jas;kljfkl;asdjfkl;asjfkl;asjf;lksdajfl;kasdf"
+        android:textSize="40sp" />
+
+    <ImageView
+        android:id="@+id/right_button"
+        android:layout_width="60dp"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

@@ -3,6 +3,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include layout="@layout/layout_common_title" />
+
     <Button
         android:id="@+id/share_button"
         android:layout_width="wrap_content"
@@ -14,5 +16,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="crash" />
+
+    <Button
+        android:id="@+id/feedback_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="feedback" />
+
+    <Button
+        android:id="@+id/fm_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fm" />
 
 </LinearLayout>

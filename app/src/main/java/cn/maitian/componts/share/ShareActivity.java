@@ -2,13 +2,18 @@ package cn.maitian.componts.share;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.umeng.socialize.bean.SHARE_MEDIA;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.maitian.R;
 import cn.maitian.activity.SocialOpenActionActivity;
+import cn.maitian.android_autofittextview.AutofitTextviewUtil;
+import cn.maitian.fraudmetrix.FMAgentUtil;
+import cn.maitian.leancloud.LeanCloudUtil;
 import cn.maitian.logger.LoggerUtil;
 import cn.maitian.social_sdk.SocialSdk;
 
@@ -24,15 +29,18 @@ public class ShareActivity extends SocialOpenActionActivity {
             LoggerUtil.i("onResult:%1$s", share_media.name());
         }
     };
+    @BindView(R.id.title_text)
+    TextView mTitleText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share);
         ButterKnife.bind(this);
+        AutofitTextviewUtil.createAutofitTextView(mTitleText);
     }
 
-    @OnClick({R.id.share_button, R.id.crash_button})
+    @OnClick({R.id.share_button, R.id.crash_button, R.id.feedback_button, R.id.fm_button})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.share_button:
@@ -44,6 +52,13 @@ public class ShareActivity extends SocialOpenActionActivity {
                 break;
             case R.id.crash_button:
                 forceCrash(view);
+                break;
+            case R.id.feedback_button:
+                LeanCloudUtil.startDefaultThreadActivity(ShareActivity.this);
+                break;
+            case R.id.fm_button:
+                String blackBox = FMAgentUtil.getbBlackBox(ShareActivity.this);
+                LoggerUtil.i("black box: %1$s", blackBox);
                 break;
             default:
                 break;
