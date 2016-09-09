@@ -108,8 +108,9 @@ dependencies {
     compile 'cn.maitian.common:customactivityoncrash:1.0.1'
     compile 'cn.maitian.common:rxbinding:1.0.1'
     compile 'cn.maitian.common:fraudmetrix:1.0.0'
-    compile('cn.maitian.common:leancloud:1.0.1')
-    compile('cn.maitian.common:android-autofittextview:1.0.1')
+    compile 'cn.maitian.common:leancloud:1.0.1'
+    compile 'cn.maitian.common:android-autofittextview:1.0.1'
+    compile 'cn.maitian.common:andfix:1.0.0'
     compile 'com.jakewharton:butterknife:8.3.0'
     apt 'com.jakewharton:butterknife-compiler:8.3.0'
     compile('com.crashlytics.sdk.android:crashlytics:2.6.2@aar') {
